@@ -1,22 +1,34 @@
 import java.util.Date;
 
 class Empleado {
-    final String nombre;
+    private final String nombre;
     private int edad;
-    final Date fechaContratacion;
+    private final Date fechaContratacion;
 
     private Empleado(String nombre, int edad, Date fechaContratacion) {
             this.nombre = nombre;
             this.edad = edad;
             this.fechaContratacion = fechaContratacion;
-        }
+    }
 
-        public void setEdad(int edad) {
+    public void setEdad(int edad) {
             if (edad < 0) throw new RuntimeException("Un empleado no puede tener edad negativa");
             else this.edad = edad;
-        }
+    }
 
-        @Override
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public Date getFechaContratacion() {
+        return fechaContratacion;
+    }
+
+    @Override
         public String toString() {
             return "Se ha registrado a " + nombre + " (" + edad + " años; contratado en 19" + fechaContratacion.getYear() + ")";
         }
